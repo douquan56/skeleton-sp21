@@ -1,6 +1,8 @@
 package deque;
 
-public class LinkedListDeque<T> {
+import afu.org.checkerframework.checker.oigj.qual.O;
+
+public class LinkedListDeque<T> implements Deque<T> {
     private class Node {
         public Node prev;
         public T item;
@@ -23,6 +25,7 @@ public class LinkedListDeque<T> {
         size = 0;
     }
 
+    @Override
     public void addFirst(T item) {
         Node node = new Node(sentinel, item, sentinel.next);
         sentinel.next.prev = node;
@@ -30,6 +33,7 @@ public class LinkedListDeque<T> {
         size++;
     }
 
+    @Override
     public void addLast(T item) {
         Node node = new Node(sentinel.prev, item, sentinel);
         sentinel.prev.next = node;
@@ -37,14 +41,12 @@ public class LinkedListDeque<T> {
         size++;
     }
 
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public void printDeque() {
         Node node = sentinel;
         while (node.next != sentinel) {
@@ -55,6 +57,7 @@ public class LinkedListDeque<T> {
         System.out.println();
     }
 
+    @Override
     public T removeFirst() {
         if (isEmpty()) {
             return null;
@@ -66,6 +69,7 @@ public class LinkedListDeque<T> {
         return node.item;
     }
 
+    @Override
     public T removeLast() {
         if (isEmpty()) {
             return null;
@@ -77,6 +81,7 @@ public class LinkedListDeque<T> {
         return node.item;
     }
 
+    @Override
     public T get(int index) {
         if (index >= size) {
             return null;
