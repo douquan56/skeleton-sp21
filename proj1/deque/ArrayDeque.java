@@ -64,13 +64,13 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         if (isEmpty()) {
             return null;
         }
+        if ((size < items.length / 4) && (items.length >= 16)) {
+            resize(items.length / 2);
+        }
         nextFirst = (nextFirst + 1) % items.length;
         T item = items[nextFirst];
         items[nextFirst] = null;
         size--;
-        if ((size < items.length / 4) && (size >= 16)) {
-            resize(items.length / 2);
-        }
         return item;
     }
 
@@ -79,13 +79,13 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         if (isEmpty()) {
             return null;
         }
+        if ((size < items.length / 4) && (items.length >= 16)) {
+            resize(items.length / 2);
+        }
         nextLast = (nextLast - 1 + items.length) % items.length;
         T item = items[nextLast];
         items[nextLast] = null;
         size--;
-        if ((size < items.length / 4) && (items.length >= 16)) {
-            resize(items.length / 2);
-        }
         return item;
     }
 
