@@ -1,0 +1,9 @@
+InsertRandomSpeedTest results for inserting 10000 strings (string length = 10):
+class hashmap.ULLMap: 0.15 sec
+class hashmap.MyHashMap: 0.01 sec
+Java's Built-in HashMap: 0.00 sec
+
+InsertInOrderSpeedTest results for inserting 10000 strings:
+class hashmap.ULLMap: 0.29 sec
+class hashmap.MyHashMap: 0.01 sec
+Java's Built-in HashMap: 0.00 sec
